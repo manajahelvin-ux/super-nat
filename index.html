@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#0d0b09">
+<title>SUPER-NAT — Post-Apocalyptic Survival</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230d0b09'/%3E%3Cpath d='M16 4 L28 26 L4 26 Z' fill='none' stroke='%23f2a541' stroke-width='3'/%3E%3Ccircle cx='16' cy='19' r='3.5' fill='%23e23b3b'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800;900&family=Chakra+Petch:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="game"></canvas>
+<div id="grain"></div>
+<div id="dmgFx"></div>
+
+<!-- ==================== HUD ==================== -->
+<div id="hud" class="hidden">
+  <div class="hud-tl">
+    <div class="hp-wrap">
+      <div class="hud-label">INTEGRITY</div>
+      <div class="hp-bar"><div id="hpGhost"></div><div id="hpFill"></div></div>
+      <div id="hpText" class="hp-num">100</div>
+    </div>
+    <div id="wChip" class="weapon-chip w-pistol">
+      <span id="wName">PISTOL</span>
+      <span id="wAmmo" class="ammo">∞</span>
+    </div>
+  </div>
+
+  <div class="hud-tc">
+    <div id="waveLabel">WAVE 1</div>
+    <div id="hostiles">— HOSTILES</div>
+  </div>
+
+  <div class="hud-tr">
+    <div id="score">0</div>
+    <div class="hud-label score-label">SCORE</div>
+    <div id="comboWrap">
+      <span id="comboX">x1</span>
+      <div class="combo-bar"><div id="comboFill"></div></div>
+    </div>
+  </div>
+
+  <div class="hud-bl">
+    <span id="killCount">0 KILLS</span>
+    <span class="dot">•</span>
+    <span id="timer">00:00</span>
+    <span class="dot">•</span>
+    <span id="bestTag"></span>
+  </div>
+
+  <button id="btnPause" class="icon-btn" aria-label="Pause">▐▐</button>
+  <button id="btnDash" class="dash-btn" aria-label="Dash">DASH</button>
+</div>
+
+<!-- ==================== WAVE BANNER ==================== -->
+<div id="banner"><div id="bannerTitle">WAVE 1</div><div id="bannerSub"></div></div>
+
+<!-- ==================== MENU ==================== -->
+<div id="menuScreen" class="screen">
+  <div class="scanlines"></div>
+  <div class="menu-inner">
+    <div class="title-wrap">
+      <div class="title-ghost" aria-hidden="true">SUPER-NAT</div>
+      <h1 class="title">SUPER-NAT</h1>
+      <div class="subtitle"><span class="sub-line"></span>POST-APOCALYPTIC SURVIVAL<span class="sub-line"></span></div>
+    </div>
+
+    <button id="btnPlay" class="btn btn-primary btn-big">▶ &nbsp;DEPLOY</button>
+
+    <div class="menu-cols">
+      <div class="panel briefing">
+        <h2>// DEPLOYMENT BRIEFING</h2>
+        <div id="ctlDesktop" class="ctl-grid">
+          <div class="ctl"><span class="key">W A S D</span><span class="what">MOVE</span></div>
+          <div class="ctl"><span class="key">MOUSE</span><span class="what">AIM</span></div>
+          <div class="ctl"><span class="key">HOLD LMB</span><span class="what">FIRE</span></div>
+          <div class="ctl"><span class="key">SPACE</span><span class="what">DASH</span></div>
+          <div class="ctl"><span class="key">P / ESC</span><span class="what">PAUSE</span></div>
+          <div class="ctl"><span class="key">M</span><span class="what">SOUND</span></div>
+        </div>
+        <div id="ctlTouch" class="ctl-touch hidden">
+          <div class="ctl"><span class="key">LEFT THUMB</span><span class="what">MOVE</span></div>
+          <div class="ctl"><span class="key">RIGHT THUMB</span><span class="what">AIM + FIRE</span></div>
+          <div class="ctl"><span class="key">DASH BUTTON</span><span class="what">DASH</span></div>
+        </div>
+        <p class="brief-note">The horde comes in waves. Chain kills to raise your multiplier. Grab drops: medkits, weapons, adrenaline. Getting hit resets your streak.</p>
+      </div>
+
+      <div class="panel records">
+        <h2>// LAST STAND RECORDS</h2>
+        <ol id="menuScores" class="scores"></ol>
+        <div id="menuEmpty" class="records-empty">NO SURVIVORS LOGGED<br>BE THE FIRST</div>
+      </div>
+    </div>
+
+    <div class="menu-foot">
+      <span id="menuBest">NO RECORDS YET</span>
+      <span class="ver">SUPER-NAT v1.0 — LOCAL BUILD</span>
+      <button id="btnMute" class="icon-btn">SOUND ON</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PAUSE ==================== -->
+<div id="pauseScreen" class="screen hidden">
+  <div class="scanlines"></div>
+  <div class="panel pause-panel">
+    <h1 class="pause-title">PAUSED</h1>
+    <div class="btn-col">
+      <button id="btnResume" class="btn btn-primary">RESUME</button>
+      <button id="btnRestart2" class="btn">RESTART</button>
+      <button id="btnQuit" class="btn">ABANDON RUN</button>
+      <button id="btnMute2" class="btn btn-ghost">SOUND ON</button>
+    </div>
+    <div class="pause-note">P / ESC — RESUME &nbsp;•&nbsp; M — SOUND</div>
+  </div>
+</div>
+
+<!-- ==================== GAME OVER ==================== -->
+<div id="overScreen" class="screen hidden">
+  <div class="scanlines"></div>
+  <div class="over-inner">
+    <h1 class="over-title">YOU DIED</h1>
+    <div id="recordBadge" class="record-badge hidden">★ NEW RECORD ★</div>
+
+    <div class="stats-grid">
+      <div class="stat big"><div class="stat-v" id="stScore">0</div><div class="stat-l">SCORE</div></div>
+      <div class="stat"><div class="stat-v" id="stWave">1</div><div class="stat-l">WAVE</div></div>
+      <div class="stat"><div class="stat-v" id="stKills">0</div><div class="stat-l">KILLS</div></div>
+      <div class="stat"><div class="stat-v" id="stTime">00:00</div><div class="stat-l">TIME</div></div>
+      <div class="stat"><div class="stat-v" id="stMult">x1</div><div class="stat-l">BEST MULT</div></div>
+    </div>
+
+    <div id="nameRow" class="name-row hidden">
+      <span class="name-tag">LOG YOUR RECORD:</span>
+      <input id="nameInput" maxlength="10" placeholder="SURVIVOR" autocomplete="off" spellcheck="false">
+      <button id="btnSaveScore" class="btn btn-small">LOG RECORD</button>
+    </div>
+
+    <ol id="overScores" class="scores over-scores"></ol>
+
+    <div class="btn-row">
+      <button id="btnRestart" class="btn btn-primary">REDEPLOY&nbsp;&nbsp;[R]</button>
+      <button id="btnMenu" class="btn">MENU</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/utils.js"></script>
+<script src="js/state.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/input.js"></script>
+<script src="js/sprites.js"></script>
+<script src="js/world.js"></script>
+<script src="js/entities.js"></script>
+<script src="js/render.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>
