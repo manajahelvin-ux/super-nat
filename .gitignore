@@ -1,0 +1,21 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Éditeurs
+.vscode/
+.idea/
+*.swp
+*~
+
+# Logs
+*.log
+
+# Env
+.env
+.env.local
+
+# Dépendances (projet statique — par précaution)
+node_modules/
+dist/
+build/

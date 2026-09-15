@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Super-Nat — Applications SaaS sur-mesure | 15 jours d'essai gratuit sans paiement</title>
+  <meta name="description" content="Je conçois et développe votre application SaaS sur-mesure (desktop ou web). 15 jours d'essai gratuit, sans aucun paiement. Choix entre achat unique ou abonnement décidé ensemble après l'essai.">
+  <meta name="theme-color" content="#08080A">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="img/logo.svg">
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header class="header" id="top">
+    <div class="container header__inner">
+      <a href="#top" class="logo" aria-label="Super-Nat — Retour en haut">
+        <span class="logo__mark" aria-hidden="true"><img src="img/logo.svg" alt="" width="28" height="28"></span>
+        <span class="logo__text">super—nat</span>
+        <span class="logo__dot" aria-hidden="true"></span>
+      </a>
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="#offres" class="nav__link">Offres</a>
+        <a href="#contact" class="nav__link">Contact</a>
+      </nav>
+      <a href="#contact" class="btn btn--primary btn--sm header__cta">Essai gratuit 15 jours</a>
+      <button class="header__burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Navigation mobile" hidden>
+      <a href="#offres" class="mobile-nav__link">Offres</a>
+      <a href="#contact" class="mobile-nav__link">Contact</a>
+      <a href="#contact" class="btn btn--primary mobile-nav__cta">Essai gratuit 15 jours</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__grid"></div>
+        <div class="hero__glow hero__glow--1"></div>
+        <div class="hero__glow hero__glow--2"></div>
+      </div>
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <div class="badge hero__badge">
+            <span class="badge__dot" aria-hidden="true"></span>
+            Disponible maintenant — 15 jours d'essai gratuit, sans paiement
+          </div>
+          <h1 id="hero-title" class="hero__title">
+            Arrêtez d'adapter<br>
+            <span class="hero__title-accent">votre entreprise</span><br>
+            à votre logiciel.
+          </h1>
+          <p class="hero__subtitle">
+            Je conçois et développe votre <strong>application SaaS sur-mesure</strong> — desktop ou web — qui épouse exactement vos processus. Pas de compromis, pas de fonctionnalités inutiles. Juste votre outil, enfin à votre image.
+          </p>
+          <div class="hero__actions">
+            <a href="#contact" class="btn btn--primary btn--lg hero__cta">
+              Démarrer mon essai gratuit de 15 jours
+              <span class="btn__sub">Sans paiement · Sans engagement</span>
+            </a>
+            <a href="#offres" class="btn btn--ghost btn--lg">Voir les offres →</a>
+          </div>
+          <p class="hero__trustline">
+            <span aria-hidden="true">✓</span> Aucune carte bancaire requise &nbsp;·&nbsp; Choix du mode (achat ou abonnement) <strong>après</strong> l'essai
+          </p>
+        </div>
+        <div class="hero__visual" aria-hidden="true">
+          <img src="img/hero-illustration.svg" alt="" width="560" height="420" loading="eager">
+          <!-- Fallback decorative window -->
+          <div class="hero__window">
+            <div class="hero__window-bar">
+              <span class="dot dot--red"></span><span class="dot dot--yellow"></span><span class="dot dot--green"></span>
+              <span class="hero__window-title">votre-app.super-nat.app</span>
+            </div>
+            <div class="hero__window-body">
+              <div class="hero__window-line" style="width: 42%"></div>
+              <div class="hero__window-line" style="width: 68%"></div>
+              <div class="hero__window-line" style="width: 55%"></div>
+              <div class="hero__window-grid">
+                <div class="hero__window-card"></div>
+                <div class="hero__window-card"></div>
+                <div class="hero__window-card"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problème / Douleur -->
+    <section class="section problem" id="probleme" aria-labelledby="problem-title">
+      <div class="container">
+        <div class="section__header">
+          <p class="eyebrow">Le constat</p>
+          <h2 id="problem-title" class="section__title">Les outils génériques vous coûtent plus qu'ils ne vous servent.</h2>
+          <p class="section__subtitle">Quand votre métier est spécifique, un logiciel standard devient un frein. Vous le ressentez chaque jour :</p>
+        </div>
+        <div class="grid-3">
+          <article class="card card--problem">
+            <div class="card__icon" aria-hidden="true">
+              <!-- Icon puzzle mismatch -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 9H6a3 3 0 0 0-3 3v6a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3v-3"/><path d="M15 9a3 3 0 0 1 3-3h0a3 3 0 0 1 3 3v0a3 3 0 0 1-3 3h-3V9Z"/><path d="M15 15v3a3 3 0 0 1-3 3h0a3 3 0 0 1-3-3v0a3 3 0 0 1 3-3h3Z"/></svg>
+            </div>
+            <h3 class="card__title">Vous tordez vos processus pour rentrer dans des cases</h3>
+            <p class="card__text">Champs inutiles, workflows imposés, détours au quotidien. Votre équipe passe plus de temps à contourner l'outil qu'à faire son métier.</p>
+          </article>
+          <article class="card card--problem">
+            <div class="card__icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4Z"/><path d="M16 8V6a4 4 0 0 0-8 0v2"/><path d="M12 16v2"/><path d="M9 12H7"/><path d="M17 12h-2"/></svg>
+            </div>
+            <h3 class="card__title">Vous payez pour 80&nbsp;% de fonctions qui ne vous servent à rien</h3>
+            <p class="card__text">Licences par utilisateur, modules que vous n'ouvrirez jamais, factures qui grimpent avec la croissance — sans créer de valeur métier.</p>
+          </article>
+          <article class="card card--problem">
+            <div class="card__icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/><path d="M16 8l2-2"/><path d="M12 2a10 10 0 0 1 10 10"/></svg>
+            </div>
+            <h3 class="card__title">Vous attendez des mois une évolution qui n'arrive jamais</h3>
+            <p class="card__text">Ticket support, roadmap opaque, mise à jour qui casse ce qui marchait. Votre besoin métier, lui, ne peut pas attendre le prochain trimestre.</p>
+          </article>
+        </div>
+        <p class="problem__closing">Et si, pour une fois, c'était le logiciel qui s'adaptait à vous — et non l'inverse&nbsp;?</p>
+      </div>
+    </section>
+
+    <!-- Solution / Offres -->
+    <section class="section offers" id="offres" aria-labelledby="offers-title">
+      <div class="container">
+        <div class="section__header">
+          <p class="eyebrow">La solution</p>
+          <h2 id="offers-title" class="section__title">Une application à votre image.<br>Deux façons d'en profiter.</h2>
+          <p class="section__subtitle">Même qualité, même exigence sur-mesure. Seul le mode de collaboration change — et vous ne le choisissez qu'<strong>après</strong> avoir essayé.</p>
+        </div>
+
+        <div class="offers__grid">
+          <!-- Offre 1 : Achat -->
+          <article class="offer">
+            <div class="offer__badge">15 jours d'essai gratuit — sans paiement</div>
+            <div class="offer__header">
+              <h3 class="offer__title">Sur-mesure <span class="offer__title-light">(achat)</span></h3>
+              <p class="offer__price"><span class="offer__price-main">Paiement unique</span> <span class="offer__price-note">décidé après l'essai</span></p>
+              <p class="offer__desc">Votre application SaaS dédiée, livrée clé en main. Vous êtes propriétaire, vous avancez à votre rythme.</p>
+            </div>
+            <ul class="offer__list" role="list">
+              <li><span class="check" aria-hidden="true">✓</span> Application desktop <em>ou</em> web, 100&nbsp;% sur-mesure</li>
+              <li><span class="check" aria-hidden="true">✓</span> Conception, développement et livraison clé en main</li>
+              <li><span class="check" aria-hidden="true">✓</span> Code source et données vous appartiennent</li>
+              <li><span class="check" aria-hidden="true">✓</span> Formation prise en main incluse</li>
+              <li><span class="check" aria-hidden="true">✓</span> Garantie correctifs 30 jours après livraison</li>
+              <li><span class="check check--muted" aria-hidden="true">—</span> <span class="muted">Évolutions à la demande, sans maintenance continue</span></li>
+            </ul>
+            <p class="offer__ideal">Idéal si : vous voulez capitaliser et garder la main en interne.</p>
+            <a href="#contact" class="btn btn--secondary btn--block">Choisir l'achat après l'essai</a>
+            <p class="offer__footnote">Aucun paiement avant la fin des 15 jours d'essai.</p>
+          </article>
+
+          <!-- Offre 2 : Abonnement -->
+          <article class="offer offer--featured" aria-label="Offre recommandée : Abonnement géré">
+            <div class="offer__badge offer__badge--featured">15 jours d'essai gratuit — sans paiement</div>
+            <div class="offer__featured-label" aria-hidden="true">Le plus choisi</div>
+            <div class="offer__header">
+              <h3 class="offer__title">Abonnement <span class="offer__title-light">(géré)</span></h3>
+              <p class="offer__price"><span class="offer__price-main">Facturation mensuelle</span> <span class="offer__price-note">décidée après l'essai</span></p>
+              <p class="offer__desc">La même application, maintenue et fait évoluer en continu. Vous vous concentrez sur votre métier.</p>
+            </div>
+            <ul class="offer__list" role="list">
+              <li><span class="check" aria-hidden="true">✓</span> Application desktop <em>ou</em> web, 100&nbsp;% sur-mesure</li>
+              <li><span class="check" aria-hidden="true">✓</span> Hébergement, maintenance et mises à jour inclus</li>
+              <li><span class="check" aria-hidden="true">✓</span> Évolutions continues selon vos retours</li>
+              <li><span class="check" aria-hidden="true">✓</span> Support prioritaire & monitoring</li>
+              <li><span class="check" aria-hidden="true">✓</span> Sauvegardes et sécurité gérées</li>
+              <li><span class="check" aria-hidden="true">✓</span> Résiliable — vous gardez l'export de vos données</li>
+            </ul>
+            <p class="offer__ideal">Idéal si : vous voulez un outil qui vit et s'améliore sans y penser.</p>
+            <a href="#contact" class="btn btn--primary btn--block">Choisir l'abonnement après l'essai</a>
+            <p class="offer__footnote">Aucun paiement avant la fin des 15 jours d'essai.</p>
+          </article>
+        </div>
+
+        <div class="offers__reassurance">
+          <p><span aria-hidden="true">↳</span> Dans les deux cas, on ne parle argent <strong>qu'après</strong> que vous ayez eu l'application entre les mains pendant 15 jours. Pas de surprise.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comment ça marche -->
+    <section class="section steps" id="comment-ca-marche" aria-labelledby="steps-title">
+      <div class="container">
+        <div class="section__header">
+          <p class="eyebrow">Comment ça marche</p>
+          <h2 id="steps-title" class="section__title">De l'idée à l'outil, en quatre étapes simples.</h2>
+        </div>
+        <ol class="steps__grid" role="list">
+          <li class="step">
+            <div class="step__number" aria-hidden="true">01</div>
+            <h3 class="step__title">Échange des besoins</h3>
+            <p class="step__text">On cartographie vos processus, vos irritants et vos objectifs. Visio ou atelier — 45 à 60 min suffisent pour cadrer.</p>
+            <span class="step__meta">1–2 jours</span>
+          </li>
+          <li class="step">
+            <div class="step__number" aria-hidden="true">02</div>
+            <h3 class="step__title">Développement sur-mesure</h3>
+            <p class="step__text">Je conçois et développe votre application (desktop ou web). Vous suivez l'avancement et validez au fil de l'eau.</p>
+            <span class="step__meta">Délai selon périmètre</span>
+          </li>
+          <li class="step step--highlight">
+            <div class="step__number" aria-hidden="true">03</div>
+            <div class="step__badge">Sans paiement</div>
+            <h3 class="step__title">15 jours d'essai gratuit</h3>
+            <p class="step__text">Vous utilisez l'application en conditions réelles, avec vos données, votre équipe. Sans carte bancaire, sans engagement.</p>
+            <span class="step__meta">15 jours complets</span>
+          </li>
+          <li class="step">
+            <div class="step__number" aria-hidden="true">04</div>
+            <h3 class="step__title">Décision commune</h3>
+            <p class="step__text">On fait le bilan ensemble. Vous choisissez alors, librement : <strong>achat sur-mesure</strong> ou <strong>abonnement géré</strong>. Ou on s'arrête là.</p>
+            <span class="step__meta">Vous décidez</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Preuves de confiance -->
+    <section class="section trust" id="confiance" aria-labelledby="trust-title">
+      <div class="container">
+        <div class="section__header">
+          <p class="eyebrow">Confiance</p>
+          <h2 id="trust-title" class="section__title">Ils me font confiance <span class="text-muted">(exemples à remplacer)</span></h2>
+          <p class="section__subtitle">Section prête à accueillir vos preuves sociales. Remplacez simplement les placeholders ci-dessous.</p>
+        </div>
+
+        <!--
+          PLACEHOLDER — LOGOS CLIENTS
+          Remplacez chaque .trust__logo par le SVG/PNG de vos clients (hauteur conseillée 24–32px, en niveaux de gris).
+          Conseil : 4 à 6 logos max, fond transparent, version monochrome.
+        -->
+        <div class="trust__logos" aria-label="Logos clients — placeholders">
+          <div class="trust__logo" aria-hidden="true">LOGO CLIENT 1</div>
+          <div class="trust__logo" aria-hidden="true">LOGO CLIENT 2</div>
+          <div class="trust__logo" aria-hidden="true">LOGO CLIENT 3</div>
+          <div class="trust__logo" aria-hidden="true">LOGO CLIENT 4</div>
+          <div class="trust__logo" aria-hidden="true">LOGO CLIENT 5</div>
+        </div>
+
+        <!--
+          PLACEHOLDER — TÉMOIGNAGES
+          Remplacez chaque <figure> par un vrai témoignage : photo, nom, poste, entreprise, citation.
+          Structure réutilisable : gardez les classes .testimonial / .testimonial__quote / .testimonial__author
+        -->
+        <div class="testimonials" role="list">
+          <figure class="testimonial" role="listitem">
+            <blockquote class="testimonial__quote">“Placeholder témoignage 1 — Remplacez ce texte par une citation client réelle. Ex : ‘Enfin un outil qui colle à notre façon de travailler. Livré en 3 semaines, adopté en 2 jours.’”</blockquote>
+            <figcaption class="testimonial__author">
+              <img src="img/avatar-placeholder.svg" alt="" width="40" height="40" class="testimonial__avatar">
+              <div>
+                <span class="testimonial__name">Prénom Nom</span>
+                <span class="testimonial__role">Poste · Entreprise</span>
+              </div>
+            </figcaption>
+          </figure>
+          <figure class="testimonial" role="listitem">
+            <blockquote class="testimonial__quote">“Placeholder témoignage 2 — Ex : ‘L'essai gratuit nous a convaincus. On a choisi l'abonnement et l'app évolue chaque mois avec nous.’”</blockquote>
+            <figcaption class="testimonial__author">
+              <img src="img/avatar-placeholder.svg" alt="" width="40" height="40" class="testimonial__avatar">
+              <div>
+                <span class="testimonial__name">Prénom Nom</span>
+                <span class="testimonial__role">Poste · Entreprise</span>
+              </div>
+            </figcaption>
+          </figure>
+          <figure class="testimonial" role="listitem">
+            <blockquote class="testimonial__quote">“Placeholder témoignage 3 — Ex : ‘Support ultra réactif, stack moderne, on a enfin un outil propriétaire sans la lourdeur d'une ESN.’”</blockquote>
+            <figcaption class="testimonial__author">
+              <img src="img/avatar-placeholder.svg" alt="" width="40" height="40" class="testimonial__avatar">
+              <div>
+                <span class="testimonial__name">Prénom Nom</span>
+                <span class="testimonial__role">Poste · Entreprise</span>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+
+        <!--
+          PLACEHOLDER — STACK TECHNIQUE
+          Remplacez par votre stack réelle (ex: Electron / Tauri / Next.js / PostgreSQL / etc.)
+          Icônes conseillées : SVG monochromes, 20–24px
+        -->
+        <div class="stack" aria-label="Stack technique — placeholders">
+          <span class="stack__label">Stack</span>
+          <span class="stack__item">TypeScript</span>
+          <span class="stack__item">Tauri / Electron</span>
+          <span class="stack__item">Next.js</span>
+          <span class="stack__item">PostgreSQL</span>
+          <span class="stack__item">— à remplacer par votre stack —</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formulaire de contact / essai -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="container contact__inner">
+        <div class="contact__intro">
+          <p class="eyebrow">Démarrer</p>
+          <h2 id="contact-title" class="section__title">Démarrez votre essai gratuit de 15 jours.</h2>
+          <p class="section__subtitle">Racontez-moi votre besoin en 2 minutes. Je vous réponds sous 24h ouvrées avec un cadrage clair et les prochaines étapes. <strong>Aucun paiement n'est demandé avant la fin de l'essai.</strong></p>
+          <ul class="contact__benefits" role="list">
+            <li><span aria-hidden="true">—</span> Réponse sous 24h ouvrées</li>
+            <li><span aria-hidden="true">—</span> Échange de cadrage offert (30 min)</li>
+            <li><span aria-hidden="true">—</span> Sans carte bancaire, sans engagement</li>
+          </ul>
+          <div class="contact__direct">
+            <p>Préférez l'email ?</p>
+            <!-- REMPLACEZ par votre vraie adresse -->
+            <a href="mailto:contact@super-nat.fr">contact@super-nat.fr</a>
+          </div>
+        </div>
+
+        <form class="form" id="lead-form" novalidate aria-describedby="form-help">
+          <p id="form-help" class="form__help">Les champs marqués d'un <span aria-hidden="true">*</span> sont obligatoires.</p>
+
+          <div class="form__grid">
+            <div class="form__field">
+              <label for="nom" class="form__label">Nom complet <span aria-hidden="true">*</span></label>
+              <input type="text" id="nom" name="nom" class="form__input" placeholder="Ex. Alex Durand" required autocomplete="name" aria-required="true">
+              <span class="form__error" id="error-nom" role="alert"></span>
+            </div>
+
+            <div class="form__field">
+              <label for="email" class="form__label">Email professionnel <span aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" class="form__input" placeholder="alex@entreprise.fr" required autocomplete="email" inputmode="email" aria-required="true" pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
+              <span class="form__error" id="error-email" role="alert"></span>
+            </div>
+          </div>
+
+          <div class="form__field">
+            <label for="entreprise" class="form__label">Nom de l'entreprise</label>
+            <input type="text" id="entreprise" name="entreprise" class="form__input" placeholder="Ex. Atelier Durand SAS" autocomplete="organization">
+          </div>
+
+          <div class="form__field">
+            <label for="type-app" class="form__label">Type d'application souhaitée</label>
+            <select id="type-app" name="type_app" class="form__input form__select">
+              <option value="" selected disabled>Choisissez une option</option>
+              <option value="Application desktop">Application desktop</option>
+              <option value="Application web">Application web</option>
+              <option value="Je ne sais pas encore">Je ne sais pas encore</option>
+            </select>
+          </div>
+
+          <fieldset class="form__fieldset">
+            <legend class="form__label">Mode envisagé après l'essai</legend>
+            <div class="radio-group">
+              <label class="radio">
+                <input type="radio" name="mode" value="Achat sur-mesure" class="radio__input">
+                <span class="radio__control" aria-hidden="true"></span>
+                <span class="radio__label">Achat sur-mesure</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="mode" value="Abonnement" class="radio__input">
+                <span class="radio__control" aria-hidden="true"></span>
+                <span class="radio__label">Abonnement</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="mode" value="À discuter après l'essai" class="radio__input" checked>
+                <span class="radio__control" aria-hidden="true"></span>
+                <span class="radio__label">À discuter après l'essai</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="form__field">
+            <label for="budget" class="form__label">Budget approximatif</label>
+            <select id="budget" name="budget" class="form__input form__select">
+              <option value="" selected disabled>Choisissez une tranche</option>
+              <option value="< 5k €">&lt; 5k €</option>
+              <option value="5k – 15k €">5k – 15k €</option>
+              <option value="15k – 50k €">15k – 50k €</option>
+              <option value="50k € +">50k € +</option>
+              <option value="Abonnement mensuel envisagé">Abonnement mensuel envisagé</option>
+              <option value="À discuter">À discuter</option>
+            </select>
+          </div>
+
+          <div class="form__field">
+            <label for="besoin" class="form__label">Description du besoin <span aria-hidden="true">*</span></label>
+            <textarea id="besoin" name="besoin" class="form__input form__textarea" rows="5" placeholder="Décrivez en quelques lignes : votre activité, le processus que vous voulez fluidifier, les irritants actuels, le résultat attendu..." required aria-required="true"></textarea>
+            <span class="form__error" id="error-besoin" role="alert"></span>
+            <span class="form__hint">Plus vous êtes concret, plus ma réponse sera précise.</span>
+          </div>
+
+          <!-- Honeypot anti-spam (laisser vide) -->
+          <div class="form__field form__field--honeypot" aria-hidden="true">
+            <label for="website">Ne pas remplir</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <button type="submit" class="btn btn--primary btn--lg btn--block form__submit" id="form-submit">
+            <span class="btn__text">Démarrer mon essai gratuit de 15 jours</span>
+            <span class="btn__loader" aria-hidden="true"></span>
+          </button>
+          <p class="form__footnote">En cliquant, vous acceptez d'être recontacté au sujet de votre demande. Aucun paiement n'est demandé avant la fin de l'essai gratuit de 15 jours. Données traitées confidentiellement.</p>
+
+          <div class="form__status" id="form-status" role="status" aria-live="polite" aria-atomic="true"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" aria-label="Pied de page">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#top" class="logo logo--footer">
+          <span class="logo__mark" aria-hidden="true"><img src="img/logo.svg" alt="" width="24" height="24"></span>
+          <span class="logo__text">super—nat</span>
+        </a>
+        <p class="footer__tagline">Applications SaaS sur-mesure — desktop & web.<br>Sur-mesure ou abonnement, vous choisissez <strong>après</strong> 15 jours d'essai gratuit sans paiement.</p>
+      </div>
+      <div class="footer__cols">
+        <div class="footer__col">
+          <h3 class="footer__heading">Contact</h3>
+          <ul class="footer__list" role="list">
+            <!-- REMPLACEZ par vos vraies coordonnées -->
+            <li><a href="mailto:contact@super-nat.fr">contact@super-nat.fr</a></li>
+            <li><a href="tel:+33600000000">+33 6 00 00 00 00</a></li>
+            <li>Lyon — Disponible en remote partout en France</li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__heading">Navigation</h3>
+          <ul class="footer__list" role="list">
+            <li><a href="#offres">Offres</a></li>
+            <li><a href="#comment-ca-marche">Comment ça marche</a></li>
+            <li><a href="#contact">Démarrer l'essai gratuit</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__heading">Réseaux</h3>
+          <ul class="footer__list" role="list">
+            <!-- REMPLACEZ # par vos vrais liens -->
+            <li><a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer">Malt / ComeUp</a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p class="footer__legal">© <span id="year"></span> Super-Nat — Tous droits réservés. &nbsp;·&nbsp; <a href="#">Mentions légales</a> &nbsp;·&nbsp; <a href="#">Politique de confidentialité</a> <span class="footer__legal-note">— Placeholder : remplacez par vos pages légales.</span></p>
+      <p class="footer__made">Fait avec soin à Lyon.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
