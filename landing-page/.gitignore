@@ -1,0 +1,38 @@
+# OS and editor files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Credentials and machine-specific configuration
+.env
+.env.*
+!.env.example
+.clasp.json
+.clasprc.json
+credentials*.json
+*service-account*.json
+*.pem
+*.key
+
+# This project needs no dependencies or build products
+node_modules/
+.cache/
+.venv/
+__pycache__/
+build/
+dist/
+coverage/
+playwright-report/
+test-results/
+*.log
+
+# Never commit lead exports or local backups
+*.csv
+*.xlsx
+*.ods
+*.bak
