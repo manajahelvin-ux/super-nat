@@ -2,7 +2,7 @@
  * Atelier — lead collector for a Google Apps Script Web App.
  * Paste into Code.gs, replace SPREADSHEET_ID, then deploy:
  * Execute as: Me / Who has access: Anyone.
- * This file runs on Google, never on Render.
+ * This file runs on Google, never on GitHub Pages.
  */
 const SPREADSHEET_ID = "COLLER_ICI_ID_DU_GOOGLE_SHEET";
 const SHEET_NAME = "Leads";

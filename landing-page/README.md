@@ -1,8 +1,8 @@
 # Atelier — landing page SaaS sur-mesure
 
-Landing page en français pour un **développeur indépendant**. HTML, CSS et JavaScript natifs, sans framework, sans npm et sans compilation. Compatible avec Render Static Site. Le formulaire transmet un JSON à Google Apps Script, qui ajoute une ligne dans une feuille Google Sheets privée.
+Landing page en français pour un **développeur indépendant**. HTML, CSS et JavaScript natifs, sans framework, sans npm et sans compilation. Hébergement retenu : **GitHub Pages**, gratuit pour ce dépôt public, avec HTTPS et déploiement à chaque push sur la branche de session. Aucun compte Render, Netlify ou Vercel n’est nécessaire. Le formulaire transmet un JSON à Google Apps Script, qui ajoute une ligne dans une feuille Google Sheets privée.
 
-> **État de livraison :** les fichiers du site et le collecteur sont fournis. La connexion Google et la publication Render nécessitent les étapes ci-dessous depuis vos comptes. Aucun service distant n’a été créé dans cet environnement, faute d’accès Google/Render. L’URL Apps Script reste volontairement un placeholder : le formulaire affiche une erreur explicite tant qu’elle n’est pas renseignée, jamais un faux succès. Un aperçu local n’est pas un déploiement Render.
+> **État de livraison :** la page native et le collecteur sont fournis. La marque **Atelier** est conservée et l’utilisateur dispose déjà d’une feuille Google Sheet, dont le lien n’a pas encore été fourni. L’activation Pages a été tentée mais refusée par GitHub (HTTP 403 : permission d’administration absente). Le propriétaire doit sélectionner **Settings → Pages → Deploy from a branch**, puis **`arena/01a0a6e3-super-nat` / `/ (root)`**. La publication directe évite tout workflow personnalisé et toute permission `workflows` supplémentaire. L’URL Apps Script et l’email professionnel restent à fournir. Le formulaire affiche une erreur explicite tant que son URL n’est pas renseignée, jamais un faux succès. Aucun site public ni envoi réel n’est annoncé comme vérifié.
 
 ## 1. Ce que vous avez
 
@@ -21,6 +21,17 @@ landing-page/
 └── .gitignore
 ```
 
+Deux fichiers supplémentaires à la racine préparent GitHub Pages :
+
+```text
+super-nat/
+├── .nojekyll               # Marqueur vide standard : pas de traitement Jekyll
+├── index.html             # Redirection immédiate vers landing-page/index.html
+└── landing-page/          # La page native et son guide, détaillés ci-dessus
+```
+
+GitHub Pages publie la **racine de la branche de session**. Le petit `index.html` racine redirige vers `landing-page/index.html` et fournit un lien de secours sans JavaScript. Le contenu principal reste unique dans `landing-page/index.html`. Il n’y a aucun workflow personnalisé, aucune compilation, aucune dépendance npm et aucune branche de publication supplémentaire.
+
 **Contrat commercial conservé :** applications/plateformes SaaS sur-mesure, web ou desktop ; achat avec paiement unique ou abonnement mensuel géré. L’application est testée **15 jours gratuitement, sans carte ni aucun paiement**. Le mode, le tarif et les conditions ne sont discutés et confirmés qu’à l’issue de l’essai. Le radio du formulaire est une indication facultative, pas une commande.
 
 L’envoi du formulaire est une **demande de prise de contact**, pas l’ouverture immédiate d’un accès. Après échange et développement, les 15 jours commencent à la mise à disposition de la version d’essai. Le périmètre de développement, le calendrier, les conditions de l’essai, la livraison et l’étendue des évolutions doivent être cadrés ensemble. Aucun achat ni abonnement ne démarre sans accord explicite après l’essai.
@@ -36,19 +47,23 @@ python3 -m http.server 8000 --bind 0.0.0.0 --directory landing-page
 
 Ouvrez `http://localhost:8000` **sur le même ordinateur**. Dans Arena, utilisez le lien d’aperçu fourni par la plateforme, pas `localhost` sur votre appareil. Ce serveur sert uniquement les fichiers ; il ne constitue pas un backend applicatif.
 
-Le JavaScript du site ne référence jamais `localhost`. Tous les assets sont locaux et les ancres utilisent des URLs relatives. L’ouverture en `file://` affiche bien la page ; pour le test final de l’envoi, préférez HTTPS sur Render car les politiques navigateur/Google peuvent restreindre une origine locale `null`.
+Le JavaScript du site ne référence jamais `localhost`. Tous les assets sont locaux et les ancres utilisent des URLs relatives. L’ouverture en `file://` affiche bien la page ; pour le test final de l’envoi, préférez HTTPS sur GitHub Pages car les politiques navigateur/Google peuvent restreindre une origine locale `null`.
 
 ## 3. Personnaliser avant publication commerciale
 
-1. Dans `index.html`, remplacez le nom de présentation **Atelier** par votre identité/marque réelle si nécessaire (titre, logo texte, pied de page, mentions légales).
+1. La marque **Atelier** est conservée à la demande de l’utilisateur. Complétez l’identité légale de l’indépendant derrière cette marque dans le pied de page et la notice de confidentialité.
 2. Remplacez **toutes** les occurrences de `bonjour@example.com`, y compris le `mailto:`, ainsi que `[email réel]`, `[nom…]` et les autres crochets des mentions légales et de la confidentialité.
-3. Renseignez votre identité légale, statut, adresse professionnelle, identifiant d’entreprise, TVA si applicable, téléphone et directeur de publication. Vérifiez et complétez les coordonnées légales de Render à partir de son site officiel. Le modèle n’est pas une garantie de conformité juridique pour toutes les juridictions.
+3. Renseignez votre identité légale, statut, adresse professionnelle, identifiant d’entreprise, TVA si applicable, téléphone et directeur de publication. Vérifiez et complétez les coordonnées légales de GitHub, Inc. (GitHub Pages) à partir de son site officiel. Le modèle n’est pas une garantie de conformité juridique pour toutes les juridictions.
 4. Remplacez le texte des réseaux par vos vrais liens LinkedIn/GitHub, par exemple `<a href="https://github.com/VOTRE_COMPTE">GitHub</a>`. Aucun faux profil n’est fourni.
 5. La section de confiance contient **trois emplacements de logos et un emplacement de témoignage explicitement provisoires**. Les commentaires HTML indiquent quoi remplacer. Utilisez uniquement des références réelles et autorisées, ou retirez les modules non renseignés avant publication. La stack est illustrative, à adapter aux compétences réelles.
 6. L’interface du hero est une illustration réalisée en HTML/CSS/SVG ; les chiffres sont marqués **données fictives**, et ne constituent pas des résultats clients.
 7. Finalisez la notice de confidentialité : responsable, adresse d’exercice des droits, prestataires, transferts éventuels et politique de conservation. La durée proposée de **12 mois après le dernier échange** implique une suppression manuelle régulière dans la feuille et ses copies éventuelles.
 
-## 4. Créer votre Google Sheet — compte Google requis
+## 4. Utiliser votre Google Sheet — compte Google requis
+
+**Vous avez déjà une feuille :** ouvrez-la depuis votre compte Google et passez directement aux étapes 3 à 8 ci-dessous. Ne créez pas de doublon. Si elle contient déjà des données, conservez-les dans leur onglet et réservez un nouvel onglet vide nommé `Leads` au formulaire. Si `Leads` existe déjà, contrôlez ses titres avant tout envoi ; ne supprimez pas des données existantes.
+
+Pour une nouvelle installation seulement :
 
 1. Connectez-vous à votre compte Google et ouvrez **https://sheets.google.com**.
 2. Cliquez sur **Vide** et nommez le fichier, par exemple **Prospects — Applications sur-mesure**.
@@ -109,13 +124,13 @@ par :
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/IDENTIFIANT_DU_DEPLOIEMENT/exec";
 ```
 
-**Collez la vraie URL `/exec` AVANT le déploiement Render.** N’utilisez ni l’adresse de la feuille, ni celle de l’éditeur Apps Script, ni l’URL de test `/dev`. L’URL du collecteur est publique ; ce n’est pas une clé secrète. L’identifiant de la feuille reste dans le script exécuté chez Google, inutile de le renseigner dans le navigateur.
+**Collez la vraie URL `/exec` AVANT la mise en production du formulaire sur GitHub Pages.** N’utilisez ni l’adresse de la feuille, ni celle de l’éditeur Apps Script, ni l’URL de test `/dev`. L’URL du collecteur est publique ; ce n’est pas une clé secrète. L’identifiant de la feuille reste dans le script exécuté chez Google, inutile de le renseigner dans le navigateur.
 
 Certains comptes Workspace interdisent les applications publiques. Si « Anyone » n’est pas disponible, demandez à l’administrateur une solution conforme à votre organisation ; ne publiez pas la feuille pour compenser cette restriction.
 
 ### Modification ultérieure du collecteur
 
-Après toute modification de `Code.gs` : **Déployer → Gérer les déploiements → crayon → Version : Nouvelle version → Déployer**. La simple sauvegarde ne met pas à jour la version publique. Modifier le déploiement existant conserve généralement son URL ; si vous créez un autre déploiement, mettez également à jour `GOOGLE_SCRIPT_URL` et republiez Render.
+Après toute modification de `Code.gs` : **Déployer → Gérer les déploiements → crayon → Version : Nouvelle version → Déployer**. La simple sauvegarde ne met pas à jour la version publique. Modifier le déploiement existant conserve généralement son URL ; si vous créez un autre déploiement, mettez également à jour `GOOGLE_SCRIPT_URL` et poussez la modification pour republier GitHub Pages.
 
 ### Fonctionnement et CORS
 
@@ -134,7 +149,7 @@ Depuis la racine du dépôt, commandes pour enregistrer vos personnalisations et
 
 ```bash
 git status
-git add landing-page
+git add index.html .nojekyll landing-page
 git commit -m "Configure landing page identity and Google Apps Script endpoint"
 # Vérifiez si origin existe déjà :
 git remote -v
@@ -147,35 +162,62 @@ git push -u origin arena/01a0a6e3-super-nat
 
 Dans ce dépôt, `origin` est déjà configuré sur `manajahelvin-ux/super-nat`. N’exécutez donc pas `git remote add origin` une seconde fois. Si aucune modification n’existe, le commit de configuration n’est pas nécessaire. Aucune donnée prospect ni aucun jeton d’accès ne doit être ajouté au dépôt.
 
-## 7. Déployer sur Render Static Site
+## 7. Activer GitHub Pages — guidage pas à pas
 
-1. Terminez d’abord les étapes Google et les mentions légales, puis poussez les fichiers configurés sur GitHub.
-2. Connectez-vous à **https://dashboard.render.com** et autorisez l’accès au dépôt GitHub concerné.
-3. Cliquez sur **New + → Static Site** (pas Web Service).
-4. Sélectionnez le dépôt `super-nat` ou votre dépôt équivalent.
-5. Choisissez la branche **`arena/01a0a6e3-super-nat`**, où se trouvent les fichiers de cette session.
-6. Choisissez un nom de site libre, par exemple `atelier-applications` si disponible.
-7. Appliquez cette configuration :
+**Pourquoi ce choix ?** Le dépôt est déjà public et accessible via GitHub. GitHub Pages héberge cette vitrine HTML/CSS/JS, pas les applications SaaS vendues aux clients. L’adresse `github.io` et HTTPS ne nécessitent pas d’achat de domaine. Un domaine personnalisé reste facultatif : sa connexion est possible, mais son achat auprès d’un registrar n’est pas offert par ce projet.
 
-| Paramètre Render | Valeur |
+### A. Activer la publication depuis votre compte propriétaire
+
+1. Connectez-vous à GitHub avec le compte propriétaire du dépôt.
+2. Ouvrez directement **https://github.com/manajahelvin-ux/super-nat/settings/pages**.
+3. Dans **Build and deployment**, ouvrez la liste **Source**.
+4. Sélectionnez **Deploy from a branch**. Si vous aviez choisi « GitHub Actions » pendant un essai précédent, remplacez ce choix : la solution finale utilise une publication directe, sans fichier workflow.
+5. Dans **Branch**, sélectionnez **`arena/01a0a6e3-super-nat`**.
+6. Dans la liste du dossier à droite, sélectionnez **`/ (root)`**, puis cliquez sur **Save**.
+7. Laissez **Custom domain** vide. N’ajoutez ni domaine ni réglage DNS pour cette première publication.
+8. Si vous ne voyez pas **Settings** ou si la page est inaccessible, vérifiez le compte connecté. Il faut les droits d’administration du dépôt. L’accès de l’agent autorise les modifications Git ordinaires mais pas cette activation (403 confirmé).
+
+**Configuration exacte :**
+
+| Paramètre | Valeur |
 |---|---|
-| Root Directory | **Vide** (racine du dépôt) |
-| Build Command | **Vide** (aucune compilation) |
-| Publish Directory | `landing-page` |
-| Auto-Deploy | Activé, si vous souhaitez publier à chaque push de cette branche |
-| Variables d’environnement | Aucune requise |
+| Source | Deploy from a branch |
+| Branch | `arena/01a0a6e3-super-nat` |
+| Folder | `/ (root)` |
+| Custom domain | Vide |
+| HTTPS | Utiliser l’URL HTTPS fournie par GitHub ; activer Enforce HTTPS si proposé |
+| Build command / npm / secrets | Aucun à configurer |
 
-Ne définissez pas simultanément Root Directory sur `landing-page` et Publish Directory sur `landing-page`. Avec une Root Directory `landing-page`, le répertoire publié serait `.`. La configuration retenue ici est racine vide + publication `landing-page`.
+Il ne faut sélectionner ni `main` ni `/docs`. GitHub ne propose pas de publier directement un dossier arbitraire comme `landing-page` dans ce mode : c’est la raison du point d’entrée à la racine.
 
-8. Cliquez sur **Deploy Static Site** et attendez l’état **Live**.
-9. Copiez l’URL HTTPS réellement attribuée par Render depuis la fiche du service : c’est **votre lien Render final**. Le nom est attribué par Render ; aucune URL de production n’est préinventée dans ce projet.
-10. Ouvrez cette URL sur ordinateur et téléphone, puis réalisez le test de bout en bout ci-dessous.
+### B. Vérifier la publication
 
-L’URL Apps Script est une configuration **publique incluse dans `script.js`**. Une variable d’environnement Render ne remplace pas une constante JS sur un site statique sans build. Modifiez le fichier puis poussez pour la changer. Aucun proxy personnalisé, aucune règle SPA, aucun backend ni aucune dépendance npm n’est nécessaire.
+1. Après **Save**, attendez quelques minutes. GitHub déclenche son propre déploiement Pages ; aucun workflow personnalisé du dépôt n’est nécessaire.
+2. Ouvrez **https://github.com/manajahelvin-ux/super-nat/actions** pour vérifier l’exécution **pages build and deployment** si elle apparaît. Attendez le succès plutôt que de supposer que le site est prêt.
+3. Revenez dans **Settings → Pages**, puis cliquez sur **Visit site** lorsque le lien est affiché.
+4. Le lien réel est celui fourni par GitHub. Vérifiez qu’il répond et affiche Atelier sur ordinateur et mobile avant de le partager.
+5. Pour les mises à jour suivantes, un push sur **`arena/01a0a6e3-super-nat`** republie le site. S’il est effectué par l’agent et ne déclenche pas Pages selon les restrictions de votre compte, relancez le déploiement depuis votre compte propriétaire dans l’onglet Actions, ou utilisez un push depuis votre poste. Vérifiez toujours l’état effectif du déploiement.
+
+**Adresse d’entrée attendue selon le nom actuel du dépôt :** `https://manajahelvin-ux.github.io/super-nat/`.
+
+Elle redirigera vers **`https://manajahelvin-ux.github.io/super-nat/landing-page/index.html`**, où se trouve la page. Ce sont des adresses prévisibles, **pas des liens déjà validés en production**. Une activation réussie et un contrôle HTTP sont nécessaires avant de les annoncer comme fonctionnelles.
+
+Les références CSS, JS et SVG sont relatives et restent compatibles avec ce sous-chemin. Le fichier `.nojekyll` vide est intentionnel : il désactive le traitement Jekyll et ne constitue pas un fichier manquant. Si un déploiement échoue, consultez ses journaux et vérifiez la branche, le dossier et les permissions du compte propriétaire avant de modifier les fichiers.
+
+### C. Connecter le formulaire et vérifier
+
+Une publication provisoire avec des mentions « à personnaliser » est possible, mais elle n’est pas prête pour une campagne. Avant exploitation :
+
+1. Déployez Apps Script depuis votre Google Sheet existant (section 5).
+2. Fournissez l’URL publique `/exec`, votre email professionnel et les informations légales à afficher. Vous pouvez aussi fournir le lien de votre feuille, en la gardant privée. Ne fournissez ni mot de passe, ni jeton, ni export des prospects.
+3. Remplacez `GOOGLE_SCRIPT_URL` dans `script.js`, complétez les coordonnées puis poussez sur `arena/01a0a6e3-super-nat` pour republier.
+4. Réalisez le test complet de la section 8. La connexion n’est validée qu’après confirmation sur le site **et** présence d’une ligne dans votre feuille privée.
+
+L’URL Apps Script est une configuration **publique incluse dans `script.js`**. Une variable d’environnement GitHub ne remplace pas une constante dans un fichier statique. Il n’y a pas de proxy, serveur custom, framework, routage SPA ou nouvelle dépendance.
 
 ## 8. Test réel avant de lancer une campagne
 
-1. Sur le site Render, cliquez sur les CTA : ils doivent atteindre `#contact`. « Offres » doit atteindre `#offres`.
+1. Sur le site GitHub Pages, cliquez sur les CTA : ils doivent atteindre `#contact`. « Offres » doit atteindre `#offres`.
 2. Essayez de soumettre des champs vides, un email incorrect et une description courte : la validation doit bloquer l’envoi.
 3. Envoyez une demande de test avec une adresse que vous contrôlez et la description « TEST À SUPPRIMER — création d’une application web de suivi des projets. »
 4. Vérifiez l’état d’envoi, le bouton désactivé et la confirmation **sans rechargement**. La confirmation rappelle qu’aucun paiement n’est demandé avant la fin de l’essai.
@@ -194,7 +236,8 @@ L’URL Apps Script est une configuration **publique incluse dans `script.js`**.
 | `HEADER_MISMATCH` | Les titres de `Leads` ne sont pas identiques à la liste ; les corriger sans supprimer vos données. |
 | Erreur côté service | ID de feuille, autorisations du propriétaire, nom d’onglet, déploiement de la dernière version, quotas Apps Script. Consulter **Exécutions** dans Apps Script et l’onglet Réseau du navigateur. |
 | Timeout ou `Failed to fetch` | Réseau, blocage navigateur, configuration CORS ou délai Google. Vérifier la feuille avant de renvoyer. |
-| Modifications invisibles sur Render | Branche sélectionnée, push effectif, état du dernier déploiement et cache navigateur. |
+| Modifications invisibles sur GitHub Pages | Push sur la branche de session, état du dernier déploiement Pages et cache navigateur. |
+| Pages renvoie 404 | Activer **Settings → Pages → Deploy from a branch**, branche de session, dossier `/ (root)`, puis attendre le succès du déploiement. Vérifier les fichiers `index.html` et `.nojekyll` à la racine. |
 
 **Pas de faux accusé de réception :** une panne réseau après l’écriture peut empêcher le navigateur de recevoir la confirmation. Le message l’indique ; il n’y a pas de relance silencieuse. Le bouton bloque les doubles clics pendant l’envoi, mais le service n’implémente pas l’idempotence entre deux tentatives distinctes. Vérifiez la feuille avant de renvoyer pour éviter un doublon.
 
@@ -209,7 +252,7 @@ L’URL Apps Script est une configuration **publique incluse dans `script.js`**.
 - Le collecteur public peut recevoir du spam : CORS n’est pas une protection d’authentification. Il n’y a pas de CAPTCHA, de filtrage par IP ni de garantie de débit. Pour une campagne importante, prévoir une protection anti-abus validée côté service et revoir l’architecture si nécessaire. Ne mettez jamais de « secret » dans le JavaScript public.
 - Respecter les quotas Apps Script/Sheets et les conditions des prestataires. Le collecteur ne garantit pas un service haute disponibilité. Surveillez les demandes et nettoyez les données selon votre politique.
 - Pas de mail de notification ou d’accusé de réception envoyé au prospect : le périmètre est l’ajout au Sheet et la confirmation inline. Consultez la feuille régulièrement.
-- Le dossier `apps-script` et ce README sont publiés comme fichiers statiques avec le répertoire. Le code livré ne contient aucun secret ni donnée client. Effectuez la configuration de la feuille dans l’éditeur Google ; ne stockez pas de clés privées dans ces fichiers.
+- La publication directe rend les fichiers statiques de la branche accessibles, notamment le README et le code Apps Script sous `landing-page/`. Ces sources sont déjà publiques dans le dépôt. Le code livré ne contient aucun secret ni donnée client. Effectuez la configuration de la feuille dans l’éditeur Google ; ne stockez pas de clés privées, fichier de credentials, export de prospects ou autre donnée confidentielle dans le dépôt. GitHub exclut les fichiers Git internes de la publication.
 
 ## 10. Décisions de design et de contenu
 
@@ -227,13 +270,14 @@ L’URL Apps Script est une configuration **publique incluse dans `script.js`**.
 ### Vérifications effectuées le 15 septembre 2026
 
 - Syntaxe JavaScript et Apps Script vérifiée avec Node ; parsing CSS et XML des trois SVG, liens internes, IDs uniques, assets locaux, labels et champs obligatoires contrôlés.
+- Entrée GitHub Pages testée dans Chromium sous le préfixe `/super-nat/` : redirection vers la page, chargement CSS/JS/SVG, comportement avec et sans JavaScript, ainsi qu’ouverture directe du `index.html` racine en `file://`. Ce test local ne prouve pas l’activation de GitHub Pages.
 - Tests Chromium aux largeurs **320, 375, 600, 768, 1 024 et 1 440 px** : aucun débordement horizontal ; CTA vers le formulaire fonctionnels.
 - Validation des champs vides et de l’email, erreur honnête si URL absente, ouverture du panneau de confidentialité, mode mouvement réduit, ouverture directe `file://` et lecture sans JavaScript vérifiés.
 - Réponses du collecteur **simulées dans le navigateur** : succès, rejet de validation, réponse HTML de connexion et panne réseau. JSON à sept clés, état de chargement, verrouillage pendant l’envoi, réinitialisation au succès et conservation en erreur vérifiés ; aucune exception JavaScript relevée.
 - Audit automatisé **axe-core, règles WCAG 2 A/AA et 2.1 AA** : aucune violation détectée sur la page desktop testée. Ce résultat n’est pas une certification exhaustive d’accessibilité.
 - Tests unitaires du collecteur avec services Google **simulés** : colonnes, champs facultatifs, choix autorisés, 15 corps invalides, protection contre les formules, incohérence d’en-têtes, verrouillage et erreurs de configuration/service.
 
-Les outils de test ont été installés hors du dépôt. Ils ne sont ni des dépendances du site, ni une étape de build. **Aucun de ces contrôles ne remplace le test réel Render → Apps Script → Google Sheet**, impossible sans services Google/Render configurés.
+Les outils de test ont été installés hors du dépôt. Ils ne sont ni des dépendances du site, ni une étape de build. **Aucun de ces contrôles ne remplace le test réel GitHub Pages → Apps Script → Google Sheet**, impossible sans services Google/Pages configurés.
 
 ### Fichiers livrés
 
@@ -251,8 +295,9 @@ Les outils de test ont été installés hors du dépôt. Ils ne sont ni des dép
 - [ ] Identité, coordonnées, références et notice légale finalisées.
 - [ ] Feuille Google créée, privée, et ID configuré dans Apps Script.
 - [ ] Web App déployée en **Moi / Anyone**, URL `/exec` renseignée dans `script.js`.
-- [ ] Configuration poussée sur GitHub et Render Static Site créé.
-- [ ] Test réel depuis Render : confirmation reçue **et ligne présente dans le Sheet**.
-- [ ] Lien Render et lien privé Google Sheet copiés depuis vos tableaux de bord.
+- [x] Point d’entrée racine et marqueur `.nojekyll` ajoutés pour publier la branche de session sans workflow personnalisé.
+- [ ] GitHub Pages activé par le propriétaire et déploiement terminé avec succès.
+- [ ] Test réel depuis GitHub Pages : confirmation reçue **et ligne présente dans le Sheet**.
+- [ ] Lien GitHub Pages et lien privé Google Sheet copiés depuis vos tableaux de bord.
 
 Ces dernières cases ne peuvent pas être cochées par un test local ou une réponse Google simulée. Elles nécessitent vos services réellement déployés.
